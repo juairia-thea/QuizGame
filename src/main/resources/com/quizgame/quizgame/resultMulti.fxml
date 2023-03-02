@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@../../Downloads/sample/Stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="windows.resultMultiController">
+    <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@background.jpg" />
+         </image>
+      </ImageView>
+        <Pane fx:id="resultMultiPane" layoutX="30.0" layoutY="27.0" prefHeight="347.0" prefWidth="540.0" style="-fx-background-color: lavender;">
+         <children>
+            <Label fx:id="rank" layoutX="74.0" layoutY="33.0" text="Rank" />
+            <Label fx:id="name" layoutX="174.0" layoutY="33.0" text="Name" />
+            <Label fx:id="score" layoutX="334.0" layoutY="33.0" text="Score" />
+            <Label fx:id="time" layoutX="454.0" layoutY="33.0" text="TIME" />
+            <Button layoutX="229.0" layoutY="263.0" mnemonicParsing="false" onAction="#gotoMainClick" text="Main Menu" />
+         </children>
+        </Pane>
+    </children>
+</Pane>
