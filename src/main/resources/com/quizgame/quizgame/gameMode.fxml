@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@../../Downloads/sample/Stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizgame.quizgame.HelloController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@background.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="58.0" layoutY="22.0" prefHeight="340.0" prefWidth="460.0" style="-fx-background-color: lavender;" styleClass="overPaneNormal">
+         <children>
+            <Label layoutX="145.0" layoutY="33.0" text="DIFFICULTY LABEL" />
+            <CheckBox fx:id="easyCheck" layoutX="189.0" layoutY="84.0" mnemonicParsing="false" onAction="#onHelloButtonClick" selected="false" text="EASY" textFill="#b91717" />
+            <CheckBox fx:id="mediumCheck" layoutX="189.0" layoutY="122.0" mnemonicParsing="false" onAction="#onHelloButtonClick" selected="true" text="MEDIUM" textFill="#b91717" />
+            <CheckBox fx:id="hardCheck" layoutX="189.0" layoutY="163.0" mnemonicParsing="false" onAction="#onHelloButtonClick" selected="false" text="HARD" textFill="#b91717" />
+            <Label layoutX="82.0" layoutY="224.0" text="TOTAL QUESTION :" />
+            <TextField fx:id="qsNumberText" alignment="CENTER" layoutX="293.0" layoutY="222.0" prefHeight="35.0" prefWidth="116.0" text="10" />
+            <Button fx:id="nextButton" layoutX="202.0" layoutY="295.0" mnemonicParsing="false" onAction="#gameModeNext" text="NEXT !" />
+         </children>
+      </Pane>
+   </children>
+</Pane>
