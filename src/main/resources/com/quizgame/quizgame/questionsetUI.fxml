@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizgame.quizgame.Controllers.QuestionsetUI">
+   <children>
+       <ImageView cache="true" fitHeight="522.0" fitWidth="650.0" layoutX="-18.0">
+           <image>
+               <Image url="@background.jpg" />
+           </image>
+       </ImageView>
+      <TextField fx:id="questionField" layoutX="157.0" layoutY="135.0" prefHeight="40.0" prefWidth="416.0" />
+      <TextField fx:id="option1Field" layoutX="106.0" layoutY="217.0" prefHeight="40.0" prefWidth="183.0" />
+      <TextField fx:id="option2Field" layoutX="412.0" layoutY="217.0" prefHeight="40.0" prefWidth="175.0" />
+      <TextField fx:id="option3Field" layoutX="102.0" layoutY="304.0" prefHeight="34.0" prefWidth="191.0" />
+      <TextField fx:id="option4Field" layoutX="412.0" layoutY="301.0" prefHeight="40.0" prefWidth="175.0" />
+      <Label fx:id="questionStatementLabel" layoutX="6.0" layoutY="144.0" text="Question Statement">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="option1" layoutX="23.0" layoutY="228.0" text="Option1" />
+      <Label fx:id="option2" layoutX="345.0" layoutY="228.0" text="Option2" />
+      <Label fx:id="option3" layoutX="23.0" layoutY="313.0" text="Option3" />
+      <Label fx:id="option4" layoutX="345.0" layoutY="304.0" text="Option4" />
+      <Label fx:id="correctans" layoutX="59.0" layoutY="365.0" prefHeight="34.0" prefWidth="118.0" text="Correct Answer" />
+
+      <ComboBox fx:id="correctAnswerComboBox" promptText="Correct Answer" layoutX="178.0" layoutY="365.0" prefHeight="34.0" prefWidth="322.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="1" />
+               <String fx:value="2" />
+               <String fx:value="3" />
+               <String fx:value="4" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+
+      <ComboBox fx:id="categoryComboBox" promptText="Category" layoutX="241.0" layoutY="87.0" prefHeight="25.0" prefWidth="127.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Sports" />
+               <String fx:value="Science" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+
+      <Label fx:id="categoryid" layoutX="153.0" layoutY="91.0" text="Category" />
+      <Label layoutX="272.0" layoutY="29.0" prefHeight="26.0" prefWidth="133.0" text="Question Set">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="277.0" layoutY="458.0" mnemonicParsing="false" text="Save" onAction="#save" />
+      <Button layoutX="59.0" layoutY="458.0" mnemonicParsing="false" text="Back" onAction="#goBack"/>
+
+      <ComboBox fx:id="difficultyComboBox" promptText="Difficulty" layoutX="446.0" layoutY="87.0" prefHeight="25.0" prefWidth="127.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Easy" />
+               <String fx:value="Medium" />
+               <String fx:value="Hard" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+   </children>
+</AnchorPane>
