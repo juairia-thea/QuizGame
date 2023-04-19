@@ -35,6 +35,7 @@ public class QuestionPanelController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         currentQuestion = QuizApplication.game.nextQuestion();
+        System.out.println("Initializing");
 
         setCurrentQuestionToUI();
     }
@@ -43,7 +44,6 @@ public class QuestionPanelController implements Initializable {
         if(currentQuestion == null){
             return;
         }
-        System.out.println("Setting " + currentQuestion.getOption1() + Option1Label.getText());
         Option1Label.setText(currentQuestion.getOption1());
         Option2Label.setText(currentQuestion.getOption2());
         Option3Label.setText(currentQuestion.getOption3());
