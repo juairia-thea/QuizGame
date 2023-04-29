@@ -1,6 +1,7 @@
 package com.quizgame.quizgame.Controllers;
 
 import com.quizgame.quizgame.QuizApplication;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -25,4 +26,9 @@ public class ResultController implements Initializable {
         QuizApplication.game.initialize();
     }
 
+    @FXML
+    protected void exit(){
+        Platform.exit();
+        System.exit(0);
+    }
 }

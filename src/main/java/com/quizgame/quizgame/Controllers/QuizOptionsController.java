@@ -42,6 +42,10 @@ public class QuizOptionsController {
                 QuizApplication.game.getDifficultyLevels()
         ));
 
-        QuizApplication.setScene(QuizApplication.questionPanel);
+        if(QuizApplication.isMultiplayer && QuizApplication.isHost){
+            QuizApplication.server.sendQuestion();
+        }
+
+        QuizApplication.startGame();
     }
 }

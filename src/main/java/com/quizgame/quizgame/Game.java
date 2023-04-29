@@ -1,16 +1,19 @@
 package com.quizgame.quizgame;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Game {
+public class Game implements Serializable {
     private List<String> difficultyLevels;
     private List<String> categories;
     private List<Question> questions;
     private int totalQuestionNumbers = 10;
     private int currentQuestion = 0;
     private int currentScore = 0;
+    public int timeRemaining;
+    public int totalTime;
 
 
     public List<String> getDifficultyLevels() {
@@ -37,7 +40,7 @@ public class Game {
         this.questions = questions;
         if (this.questions != null){
             Collections.shuffle(questions);
-            this.questions = questions.subList(0, totalQuestionNumbers);
+            this.questions = new ArrayList<Question>(questions.subList(0, totalQuestionNumbers));
             this.totalQuestionNumbers = this.questions.size();
         }
     }
