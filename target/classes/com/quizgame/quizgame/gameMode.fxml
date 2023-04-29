@@ -18,9 +18,9 @@
       <Pane layoutX="58.0" layoutY="22.0" prefHeight="340.0" prefWidth="460.0" style="-fx-background-color: lavender;" styleClass="overPaneNormal">
          <children>
             <Label layoutX="145.0" layoutY="33.0" text="DIFFICULTY LABEL" />
-            <CheckBox fx:id="easyCheck" layoutX="189.0" layoutY="84.0" mnemonicParsing="false" selected="false" text="Easy" textFill="#b91717" />
+            <CheckBox fx:id="easyCheck" layoutX="189.0" layoutY="84.0" mnemonicParsing="false" selected="true" text="Easy" textFill="#b91717" />
             <CheckBox fx:id="mediumCheck" layoutX="189.0" layoutY="122.0" mnemonicParsing="false" selected="true" text="Medium" textFill="#b91717" />
-            <CheckBox fx:id="hardCheck" layoutX="189.0" layoutY="163.0" mnemonicParsing="false" selected="false" text="Hard" textFill="#b91717" />
+            <CheckBox fx:id="hardCheck" layoutX="189.0" layoutY="163.0" mnemonicParsing="false" selected="true" text="Hard" textFill="#b91717" />
             <Label layoutX="82.0" layoutY="224.0" text="TOTAL QUESTION :" />
             <TextField fx:id="qsNumberText" alignment="CENTER" layoutX="293.0" layoutY="222.0" prefHeight="35.0" prefWidth="116.0" text="10" />
             <Button fx:id="nextButton" layoutX="202.0" layoutY="295.0" mnemonicParsing="false" onAction="#goNext" text="NEXT !" />

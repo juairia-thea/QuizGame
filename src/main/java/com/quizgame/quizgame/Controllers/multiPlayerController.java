@@ -10,6 +10,7 @@ public class multiPlayerController {
 
     @FXML
     protected void hostWindow() {
+        QuizApplication.isHost = true;
         QuizApplication.playerName = nameText.getText();
         QuizApplication.setScene(QuizApplication.hostWindow);
     }
