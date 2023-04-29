@@ -19,7 +19,7 @@
             <Button alignment="CENTER" contentDisplay="CENTER" layoutX="301.0" layoutY="160.0" mnemonicParsing="false" onAction="#option2Click" styleClass="answerBox" text="2" />
             <Button alignment="CENTER" contentDisplay="CENTER" layoutX="108.0" layoutY="227.0" mnemonicParsing="false" onAction="#option3Click" styleClass="answerBox" text="3" />
             <Button alignment="CENTER" contentDisplay="CENTER" layoutX="301.0" layoutY="227.0" mnemonicParsing="false" onAction="#option4Click" styleClass="answerBox" text="4" />
-            <Label fx:id="timerLabel" layoutX="458.0" layoutY="21.0" prefHeight="21.0" prefWidth="68.0" styleClass="timeCounter" text="00:10:00" />
+            <Label fx:id="timerLabel" layoutX="458.0" layoutY="21.0" prefHeight="21.0" prefWidth="68.0" styleClass="timeCounter" text="0" />
             <Label fx:id="Option1Label" layoutX="155.0" layoutY="164.0" text="Label" />
             <Label fx:id="Option2Label" layoutX="350.0" layoutY="166.0" text="Label" />
             <Label fx:id="Option3Label" layoutX="155.0" layoutY="233.0" text="Label" />

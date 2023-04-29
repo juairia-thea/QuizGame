@@ -15,5 +15,6 @@ public class joinWindowController implements Initializable {
         }
 
         Client client = new Client(QuizApplication.serverAddress, QuizApplication.serverPort, QuizApplication.playerName);
+        QuizApplication.client = client;
     }
 }
