@@ -1,5 +1,6 @@
-package com.quizgame.quizgame;
+package com.quizgame.quizgame.Controllers;
 
+import com.quizgame.quizgame.QuizApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -39,6 +40,6 @@ public class HelloController {
 
     @FXML
     protected void mainMenu() {
-        QuizApplication.setScene(QuizApplication.sampleScene);
+        QuizApplication.setScene(QuizApplication.startWindow);
     }
 }
