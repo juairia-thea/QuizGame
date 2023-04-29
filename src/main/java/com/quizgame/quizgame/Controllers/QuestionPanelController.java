@@ -1,12 +1,15 @@
 package com.quizgame.quizgame.Controllers;
 import com.quizgame.quizgame.Question;
 import com.quizgame.quizgame.QuizApplication;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class QuestionPanelController implements Initializable {
     @FXML
@@ -31,13 +34,39 @@ public class QuestionPanelController implements Initializable {
     private Label Option4Label;
 
     private Question currentQuestion;
+    Timer myTimer;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         currentQuestion = QuizApplication.game.nextQuestion();
-        System.out.println("Initializing");
+        if(currentQuestion == null){
+            return;
+        }
 
         setCurrentQuestionToUI();
+
+        QuizApplication.game.timeRemaining = QuizApplication.game.getTotalQuestionNumbers()*10;
+        QuizApplication.game.totalTime = QuizApplication.game.timeRemaining;
+        myTimer = new Timer();
+
+        myTimer.scheduleAtFixedRate(new TimerTask(){
+            @Override
+            public void run() {
+                QuizApplication.game.timeRemaining--;
+
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        timerLabel.setText(QuizApplication.game.timeRemaining + "");
+                        if(QuizApplication.game.timeRemaining == 0){
+                            myTimer.cancel();
+                            QuizApplication.stopGame();
+                        }
+                    }
+                });
+            }
+        }, 0, 1000);
+        timerLabel.setText(QuizApplication.game.timeRemaining + "");
     }
 
     private void setCurrentQuestionToUI(){
@@ -83,7 +112,8 @@ public class QuestionPanelController implements Initializable {
         currentQuestion = QuizApplication.game.nextQuestion();
 
         if (currentQuestion == null){
-            QuizApplication.setScene(QuizApplication.result);
+            myTimer.cancel();
+            QuizApplication.stopGame();
         }
 
         setCurrentQuestionToUI();

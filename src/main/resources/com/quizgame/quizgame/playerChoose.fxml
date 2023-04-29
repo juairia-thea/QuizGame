@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@../../Downloads/sample/Stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizgame.quizgame.Controllers.HelloController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@../../Downloads/sample/Stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizgame.quizgame.Controllers.PlayerChooseController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0">
          <image>
@@ -22,7 +22,7 @@
                </font>
             </Label>
             <Button layoutX="161.0" layoutY="103.0" mnemonicParsing="false" text="Single Player" onAction="#singlePlayer" />
-            <Button layoutX="161.0" layoutY="175.0" mnemonicParsing="false" text="Multi Player" />
+            <Button layoutX="161.0" layoutY="175.0" mnemonicParsing="false" text="Multi Player" onAction="#multiPlayer"/>
          </children>
       </Pane>
    </children>

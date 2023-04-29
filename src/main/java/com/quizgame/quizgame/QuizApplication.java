@@ -1,6 +1,7 @@
 package com.quizgame.quizgame;
 
 import com.quizgame.quizgame.Networking.Client;
+import com.quizgame.quizgame.Networking.Score;
 import com.quizgame.quizgame.Networking.Server;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -12,6 +13,9 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class QuizApplication extends Application {
@@ -26,6 +30,7 @@ public class QuizApplication extends Application {
     public static Scene hostWindow;
     public static Scene joinWindow;
     public static Scene multiPlayer;
+    public static Scene resultMultiplayer;
 
     public static DatabaseHandler databaseHandler;
     public static QuestionDAO questionDAO;
@@ -37,7 +42,10 @@ public class QuizApplication extends Application {
     public static Server server;
     public static Client client;
     public static boolean isHost;
+    public static boolean isMultiplayer;
     public static String playerName;
+    public static ArrayList<Score> scores;
+    public static boolean gameRunning = false;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -61,6 +69,7 @@ public class QuizApplication extends Application {
         questionSetUI = new Scene(new FXMLLoader(QuizApplication.class.getResource("questionsetUI.fxml")).load(), 650, 522);
         hostWindow = newScene(new FXMLLoader(QuizApplication.class.getResource("hostWindow.fxml")), 600, 400);
         joinWindow = newScene(new FXMLLoader(QuizApplication.class.getResource("joinWindow.fxml")), 600, 400);
+        resultMultiplayer = newScene(new FXMLLoader(QuizApplication.class.getResource("resultMulti.fxml")), 600, 400);
         multiPlayer = new Scene(new FXMLLoader(QuizApplication.class.getResource("multiPlayer.fxml")).load(), 600, 400);
 
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -103,6 +112,49 @@ public class QuizApplication extends Application {
         Scene scene = new Scene(loader.load(), 600, 400);
         scene.setUserData(loader);
         return scene;
+    }
+
+    public static void startGame(){
+        scores = new ArrayList<>();
+        setScene(QuizApplication.questionPanel);
+        gameRunning = true;
+    }
+
+    public static void stopGame(){
+        gameRunning = false;
+
+        if(isMultiplayer){
+            if(isHost){
+                addScore(new Score(QuizApplication.game.getCurrentScore(), playerName, game.totalTime - game.timeRemaining));
+                server.sendScores();
+            }else{
+                client.sendScore();
+            }
+
+        }
+
+        showScore();
+    }
+
+    public static void showScore(){
+        if(gameRunning)
+            return;
+        if(isMultiplayer){
+            setScene(resultMultiplayer);
+        }else{
+            setScene(result);
+        }
+    }
+
+    public static void addScore(Score score){
+        scores.add(score);
+
+        scores.sort(new Comparator<Score>() {
+            @Override
+            public int compare(Score o1, Score o2) {
+                return o2.score - o1.score;
+            }
+        });
     }
 
     public static void main(String[] args) {
